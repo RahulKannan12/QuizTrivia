@@ -12,9 +12,15 @@
                 <!--<div class="col-md-6">
                     <img alt="Logo" src="./src/Logo.PNG" />
                 </div>-->
-                <div class="col-md-6">
+                <div class="QuizInfo">
                     <h1>QuizTrivia</h1>
-                    <h2>An simple quiz game where the questions would be answers and answers would be questions ! </h2>                                        
+                    <h2>A simple quiz game where the questions would be answers and answers would be questions ! </h2>                                        
+                </div>
+                <div class="DashBoard">
+                    <h2>DashBoard</h2>
+                    <h3>Successful Streak : {{streakCount}}</h3>
+                    <h4>Correct Answer : {{correctAnswer}}</h4>
+                    <button class= "btn btn-outline-info btn-block" ng-click="nextQuestion()">Next Question</button>                    
                 </div>
             </div>
         </div>
@@ -23,14 +29,14 @@
                 <h5>{{welcomeMessage.question}}</h5>
             </div>
             <div class="Options">
-                <button class="btn btn-outline-info btn-lg  option1" ng-click="checkAnswer(0)">{{questionsFinal[0] | capitalize}}</button>
-                <button class="btn btn-outline-info btn-lg option2" ng-click="checkAnswer(1)">{{questionsFinal[1] | capitalize}}</button>
-                <button class="btn btn-outline-info btn-lg  option3" ng-click="checkAnswer(2)">{{questionsFinal[2] | capitalize}}</button>
-                <button class="btn btn-outline-info btn-lg option4" ng-click="checkAnswer(3)">{{questionsFinal[3] | capitalize}}</button>
+                <button class="btn btn-outline-info btn-lg  option1" ng-click="checkAnswer(0)" ng-disabled="blockAnswer">{{questionsFinal[0] | capitalize}}</button>
+                <button class="btn btn-outline-info btn-lg option2" ng-click="checkAnswer(1)" ng-disabled="blockAnswer">{{questionsFinal[1] | capitalize}}</button>
+                <button class="btn btn-outline-info btn-lg  option3" ng-click="checkAnswer(2)" ng-disabled="blockAnswer">{{questionsFinal[2] | capitalize}}</button>
+                <button class="btn btn-outline-info btn-lg option4" ng-click="checkAnswer(3)" ng-disabled="blockAnswer">{{questionsFinal[3] | capitalize}}</button>
             </div>
-            <div class="Result">
-                <h1>{{Result}}</h1>
-            </div>
+            <div class="alert alert-success Result" ng-show="resultTab">
+                <strong>{{Result}}</strong>
+              </div>
         </div>        
     </div>
     <script src="./src/app.js"></script>    
