@@ -12,7 +12,7 @@ app.controller('MainController', function ($scope, $http) {
     $scope.correctAnswer = "";
     $http({
       method: 'GET',
-      url: 'http://jservice.io/api/random'
+      url: 'https://jservice.io/api/random'
     }).then(function successCallback(response) {
       $scope.welcomeMessage = response.data[0];
       $scope.formattedURL = 'https://api.datamuse.com/words?ml=' + $scope.welcomeMessage.answer;
